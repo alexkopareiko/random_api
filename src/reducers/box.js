@@ -1,4 +1,4 @@
-const initialState = ['initial state'];
+const initialState = [];
 
 export default function box(state = initialState, action) {
 switch(action.type) {

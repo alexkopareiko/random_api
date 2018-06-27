@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {add} from '../actions/index';
 import { Button } from 'semantic-ui-react';
+import { fetch_random } from './fetch.js';
 
 class Start extends Component {
 
@@ -11,16 +12,23 @@ class Start extends Component {
      this.btnHandlerSend = this.btnHandlerSend.bind(this);
 
      this.state = {
+       msg_rcvd : ""
 
      }
    }
 
+
+
    btnHandlerSend(e) {
      e.preventDefault();
-     if(this.refs._ref.value!='')
-      this.props.actions.add(this.refs._ref.value);
-      this.refs._ref.value = '';
-      this.refs._ref.focus();
+     fetch_random()
+       .then( data => {
+         this.setState({
+           msg_rcvd: data
+         });
+       });
+      this.props.actions.add(this.state.msg_rcvd);
+
 
   }
 
@@ -29,13 +37,9 @@ class Start extends Component {
       <div>
         <div className="ui form">
 
-          {console.log(this.props)}
-          <div className="field">
-            <label></label>
-            <textarea rows="2" ref='_ref' placeholder="Feel free to write..."></textarea>
-          </div>
-
+          {console.log(this.state)}
           <Button onClick={e => this.btnHandlerSend(e)}>Send</Button>
+          {}
         </div>
       </div>
     );
@@ -54,7 +58,7 @@ class Start extends Component {
 function mapStateToProps(state) {
 
   return {
-    connectState: state.box
+    connectState: state
   };
 
 }
