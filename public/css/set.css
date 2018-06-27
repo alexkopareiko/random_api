@@ -1,0 +1,15 @@
+@import '~semantic-ui-css/semantic.css';
+
+.div_main {
+  margin-right:50px;
+  margin-top:10px;
+  margin-left:10px;
+  max-width: 400px;
+}
+
+.div_chat {
+  margin-top:10px;
+  height: 400px;
+
+  overflow:scroll;
+}
