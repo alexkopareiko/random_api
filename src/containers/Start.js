@@ -27,7 +27,18 @@ class Start extends Component {
            msg_rcvd: data
          });
        });
-      this.props.actions.add(this.state.msg_rcvd);
+       if(this.state.msg_rcvd[0]!=null)
+        {
+          let arr = {
+            id: Date.now().toString(),
+            name : this.state.msg_rcvd[0].name,
+            age: this.state.msg_rcvd[0].age
+
+          }
+            this.props.actions.add(arr);
+
+        }
+      console.log(this.state.msg_rcvd);
 
 
   }
@@ -37,8 +48,7 @@ class Start extends Component {
       <div>
         <div className="ui form">
 
-          {console.log(this.state)}
-          <Button onClick={e => this.btnHandlerSend(e)}>Send</Button>
+          <Button onClick={e => this.btnHandlerSend(e)}>Get from API</Button>
           {}
         </div>
       </div>

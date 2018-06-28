@@ -12,6 +12,13 @@ switch(action.type) {
      ]
     break;
 
+    case "DELETE":
+      const Id = action.payload;
+      return state.filter(row => row.id !== Id);
+
+
+      break;
+
   default:
     return state;
 }
