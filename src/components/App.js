@@ -8,6 +8,8 @@ export default class App extends Component {
 showList() {
   return (
     <div className="div_main">
+
+
       <h3>Random API</h3>
       <Start />
       <Box />

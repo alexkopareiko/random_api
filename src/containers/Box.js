@@ -55,7 +55,8 @@ class Box extends Component {
                           <Button onClick={e => this.handleClickUpdate(row.id, e)} color="green">U</Button>
                         </List.Content>
                         <List.Content >
-                          {row.name} ({row.age})
+                           <List.Header>{row.name} ({row.age})</List.Header>
+
                         </List.Content>
                       </List.Item>
 
