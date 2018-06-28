@@ -38,9 +38,6 @@ class Start extends Component {
             this.props.actions.add(arr);
 
         }
-      console.log(this.state.msg_rcvd);
-
-
   }
 
   showList() {

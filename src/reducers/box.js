@@ -15,9 +15,25 @@ switch(action.type) {
     case "DELETE":
       const Id = action.payload;
       return state.filter(row => row.id !== Id);
+    break;
 
 
-      break;
+    case "UPDATE":
+    return state.map( (item, index) => {
+
+        if(item.id != action.payload.id) {
+            // This isn't the item we care about - keep it as-is
+            return item;
+        }
+        // Otherwise, this is the one we want - return an updated value
+
+        return {
+            ...item,
+            ...action.payload
+        };
+      });
+
+    break;
 
   default:
     return state;

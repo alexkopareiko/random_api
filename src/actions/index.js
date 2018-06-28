@@ -14,3 +14,11 @@ export const delete_note = (id) => {
     payload: id
   }
 };
+
+export const update_note = (id) => {
+  console.log('update');
+  return {
+    type: "UPDATE",
+    payload: id
+  }
+};
